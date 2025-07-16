@@ -8,7 +8,7 @@ function pingProblemController(req, res) {
 function addProblem(req, res, next) {
   try {
     //nothing implemeneted
-    throw new BadRequest("Problem Name", { missing: ["Problem name"] });
+    throw new NotImplemented("Add Problem");
   } catch (error) {
     next(error);
   }
@@ -16,17 +16,39 @@ function addProblem(req, res, next) {
 
 function getProblem(req, res, next) {
   try {
-    throw new BadRequest("Problem Name", { missing: ["Problem name"] });
+    //nothing implemeneted
+    throw new NotImplemented("Add Problem");
   } catch (error) {
     next(error);
   }
 }
 
-function getAllProblems(req, res) {}
+function getAllProblems(req, res) {
+  try {
+    //nothing implemeneted
+    throw new NotImplemented("Add Problem");
+  } catch (error) {
+    next(error);
+  }
+}
 
-function updateProblem(req, res) {}
+function updateProblem(req, res) {
+  try {
+    //nothing implemeneted
+    throw new NotImplemented("Add Problem");
+  } catch (error) {
+    next(error);
+  }
+}
 
-function deleteProblem(req, res) {}
+function deleteProblem(req, res) {
+  try {
+    //nothing implemeneted
+    throw new NotImplemented("Add Problem");
+  } catch (error) {
+    next(error);
+  }
+}
 
 module.exports = {
   pingProblemController,
