@@ -1,0 +1,40 @@
+{
+    "title": "Two Sum",
+    "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.",
+    "difficulty": "easy",
+    "testCases": [
+        {
+            "input": "[2,7,11,15]\n9",
+            "output": "[0,1]"
+        },
+        {
+            "input": "[3,2,4]\n6",
+            "output": "[1,2]"
+        },
+        {
+            "input": "[3,3]\n6",
+            "output": "[0,1]"
+        }
+    ],
+    "codeStubs": [
+        {
+            "language": "CPP",
+            "startSnippet": "#include <vector>\n\nclass Solution {\npublic:\n    std::vector<int> twoSum(std::vector<int>& nums, int target) {",
+            "userSnippet": "\n        // Write your code here\n",
+            "endSnippet": "\n    }\n};"
+        },
+        {
+            "language": "JAVA",
+            "startSnippet": "class Solution {\n    public int[] twoSum(int[] nums, int target) {",
+            "userSnippet": "\n        // Write your code here\n",
+            "endSnippet": "\n    }\n}"
+        },
+        {
+            "language": "PYTHON",
+            "startSnippet": "class Solution(object):\n    def twoSum(self, nums, target):",
+            "userSnippet": "\n        # Write your code here\n        ",
+            "endSnippet": ""
+        }
+    ],
+    "editorial": "### Brute Force Approach\n\nThe brute force approach is to loop through each element `x` and then loop through the rest of the array to find a `y` such that `x + y = target`.\n\n### Hash Map Approach\n\nA more efficient approach is to use a hash map. Iterate through the array, and for each element `x`, check if `target - x` exists in the hash map. If it does, you have found a solution. If not, add `x` and its index to the hash map."
+}

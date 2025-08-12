@@ -5,6 +5,9 @@ const { StatusCodes } = require("http-status-codes");
 //Now if the error is in subset of base error, then we will populate it
 function errorHandler(err, req, res, next) {
   console.log("Error Handler kicked in");
+   // Log with request ID
+  logger.error(err.message, { requestId: req.id, stack: err.stack });
+  
   if (err instanceof BaseError) {
     return res.status(err.statusCode).json({
       success: false,

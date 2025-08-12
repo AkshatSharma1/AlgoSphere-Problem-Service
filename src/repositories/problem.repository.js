@@ -1,5 +1,4 @@
 const { problemModel } = require("../models");
-
 const NotFound = require("../errors/notfound.error");
 const logger = require("../config/logger.config");
 
@@ -10,6 +9,7 @@ class ProblemRepository {
         title: problemData.title,
         description: problemData.description,
         difficulty: problemData.difficulty,
+        codeStubs: problemData.codeStubs,
         testCases: problemData.testCases ? problemData.testCases : [],
       });
       return problem;
@@ -21,10 +21,9 @@ class ProblemRepository {
 
   async getProblem(id) {
     try {
-      const problem = await problemModel.findOne({ id });
-
+      const problem = await problemModel.findById(id);
       if (!problem) {
-        logger.warn(`Problem with id: ${id} doesnot exist in db`);
+        logger.warn(`Problem with id: ${id} does not exist in db`);
         throw new NotFound("Problem", id);
       }
       return problem;
@@ -44,15 +43,22 @@ class ProblemRepository {
 
   async updateProblem(id, problemData) {
     try {
-      const problem = await problemModel.findByIdAndUpdate(id, problemData, {
-        new: true,
-      });
+      // findByIdAndUpdate will return the updated document if found, otherwise null
+      const updatedProblem = await problemModel.findByIdAndUpdate(
+        id,
+        problemData,
+        {
+          new: true, // This option returns the modified document rather than the original
+        }
+      );
+
       if (!updatedProblem) {
-        logger.warn(`Problem with ${id} not found in db`);
+        logger.warn(`Problem with id ${id} not found for update`);
         throw new NotFound("Problem", id);
       }
-      return problem;
+      return updatedProblem;
     } catch (error) {
+      // Re-throw the error to be handled by the service/controller layer
       throw error;
     }
   }
@@ -61,7 +67,7 @@ class ProblemRepository {
     try {
       const deletedProblem = await problemModel.findByIdAndDelete(id);
       if (!deletedProblem) {
-        logger.info(`Problem with ${id} not found in db`);
+        logger.info(`Problem with id ${id} not found for deletion`);
         throw new NotFound("Problem", id);
       }
       return deletedProblem;

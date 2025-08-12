@@ -1,6 +1,7 @@
 const winston = require("winston");
 require("winston-mongodb");
 const { LOG_DB_URL } = require("./server.config");
+const { options } = require("joi");
 
 const allowedTransports = [];
 // const customColors = {
@@ -24,7 +25,7 @@ allowedTransports.push(
       //Log level format
       winston.format.printf(
         (log) =>
-          `${log.timestamp}  [${log.level.toUpperCase()}]: ${log.message}`
+          `${log.timestamp} [${log.level.toUpperCase()}] ${log.requestId || ''}: ${log.message}`
       )
     ),
   })
@@ -35,7 +36,9 @@ const mongoTransportOptions = {
   level: "info",
   db: LOG_DB_URL,
   collection: "logs",
+  options: {useUnifiedTopology: true}
 };
+
 allowedTransports.push(new winston.transports.MongoDB(mongoTransportOptions));
 
 //File transport
@@ -59,7 +62,7 @@ const logger = winston.createLogger({
     //Log level format
     winston.format.printf(
       (log) =>
-        `${log.timestamp}  [${log.level.toUpperCase()}]: ${log.message}`
+        `${log.timestamp} [${log.level.toUpperCase()}] ${log.requestId || ''}: ${log.message}`
     )
   ),
 

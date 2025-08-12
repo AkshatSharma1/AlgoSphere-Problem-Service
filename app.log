@@ -3,3 +3,6 @@
 2025-07-19 01:08:12  [34MINFO[39M: [34mProblem with 666aba427205607ac5920002 not found in db[39m
 2025-07-19 01:10:42  INFO: Problem with 666aba427205607ac5920002 not found in db
 2025-07-19 01:11:31  [INFO]: Problem with 666aba427205607ac5920002 not found in db
+2025-08-11 16:44:20  [WARN]: Problem with id: 6899c997da42365214cb2878 doesnot exist in db
+2025-08-11 16:45:17  [WARN]: Problem with id: 6899c997da42365214cb2878 doesnot exist in db
+2025-08-11 16:51:15  [WARN]: Problem with id: 6899c997da42365214cb2878 doesnot exist in db
