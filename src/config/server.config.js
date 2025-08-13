@@ -6,4 +6,5 @@ module.exports = {
   PROD_DB_URL: process.env.PROD_DB_URL,
   LOG_DB_URL: process.env.LOG_DB_URL,
   NODE_ENV: process.env.NODE_ENV || "development",
+  JWT_SECRET: process.env.JWT_SECRET,
 };

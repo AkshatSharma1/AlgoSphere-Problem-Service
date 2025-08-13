@@ -6,3 +6,6 @@
 2025-08-11 16:44:20  [WARN]: Problem with id: 6899c997da42365214cb2878 doesnot exist in db
 2025-08-11 16:45:17  [WARN]: Problem with id: 6899c997da42365214cb2878 doesnot exist in db
 2025-08-11 16:51:15  [WARN]: Problem with id: 6899c997da42365214cb2878 doesnot exist in db
+2025-08-12 17:32:48 [ERROR] 4cc43d72-5340-497a-8f86-bad551dcaa65: Authentication failed
+2025-08-12 17:33:42 [ERROR] a2f0c4ea-dd30-4757-8bf0-0653978d3853: Authentication failed
+2025-08-12 17:38:46 [ERROR] 63b6180c-c73d-435b-97cc-18bbe96f5428: Authentication failed

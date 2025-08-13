@@ -8,6 +8,7 @@ const errorHandler = require("./utils/error.handler");
 const connectToDB = require("./config/db.config");
 const { default: mongoose } = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
+const cors = require('cors')
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
+app.use(cors())
 
 app.use("/api", apiRouter);
 
